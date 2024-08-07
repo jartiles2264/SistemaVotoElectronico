@@ -31,25 +31,38 @@ public class BarraResultados extends JPanel {
             }
         }
 
+        FontMetrics metrics = g2d.getFontMetrics();
         for (int i = 0; i < values.length; i++) {
             int barHeight = (int) ((values[i] / (double) maxVotes) * maxBarHeight);
-            g2d.setColor(barColors[i]); 
-            g2d.fillRect(x, getHeight() - barHeight - 50, barWidth, barHeight);
-            g2d.setColor(Color.BLACK); 
-            g2d.drawString(labels[i], x + barWidth / 2 - g2d.getFontMetrics().stringWidth(labels[i]) / 2, getHeight() - 10);
-            x += barWidth + barSpacing; 
+            int barX = x;
+            int barY = getHeight() - barHeight - 50;
+
+            // Draw the bar
+            g2d.setColor(barColors[i]);
+            g2d.fillRect(barX, barY, barWidth, barHeight);
+
+            // Draw the label at the bottom
+            g2d.setColor(Color.BLACK);
+            g2d.drawString(labels[i], barX + barWidth / 2 - metrics.stringWidth(labels[i]) / 2, getHeight() - 10);
+
+            // Draw the number of votes above the bar
+            String votesText = String.valueOf(values[i]);
+            int textWidth = metrics.stringWidth(votesText);
+            g2d.drawString(votesText, barX + barWidth / 2 - textWidth / 2, barY - 5);
+
+            x += barWidth + barSpacing;
         }
     }
 
     public static void main(String[] args) {
         int[] values = {50, 80, 60, 90};
         String[] labels = {"A", "B", "C", "D"};
-        Color[] colors = {Color.BLUE, Color.RED, Color.GREEN, Color.ORANGE}; 
-        
+        Color[] colors = {Color.BLUE, Color.RED, Color.GREEN, Color.ORANGE};
+
         JFrame frame = new JFrame("Bar Chart");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(new BarraResultados(values, labels, colors));
-        frame.setSize(800, 600); 
+        frame.setSize(800, 600);
         frame.setVisible(true);
     }
 }
