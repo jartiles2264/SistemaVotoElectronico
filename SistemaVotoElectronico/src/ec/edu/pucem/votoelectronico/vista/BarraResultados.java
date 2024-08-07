@@ -54,7 +54,7 @@ public class BarraResultados extends JPanel {
     public static void main(String[] args) {
         int[] values = {50, 80, 60, 90};
         String[] labels = {"A", "B", "C", "D"};
-        Color[] colors = {Color.BLUE, Color.RED, Color.GREEN, Color.ORANGE};
+        Color[] colors = {Color.BLUE, Color.RED, Color.GREEN, Color.ORANGE, Color.MAGENTA};
 
         JFrame frame = new JFrame("Bar Chart");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
