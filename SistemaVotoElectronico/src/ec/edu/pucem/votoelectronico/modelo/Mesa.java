@@ -44,4 +44,10 @@ public class Mesa {
     public void setSecretario(String secretario) {
         this.secretario = secretario;
     }
+
+    // Sobrescribir el método toString para mostrar el nombre de la mesa
+    @Override
+    public String toString() {
+        return nombre; // Devuelve el nombre de la mesa para mostrar en el JComboBox
+    }
 }

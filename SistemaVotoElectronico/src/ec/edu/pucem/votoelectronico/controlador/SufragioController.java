@@ -131,4 +131,24 @@ public class SufragioController {
         }
         return sb.toString();
     }
+    public void agregarEstudiante(Long id, String nombre, String cedula, boolean estado, Curso curso) {
+        Estudiante estudiante = new Estudiante(id, nombre, cedula, estado, curso);
+        estudiantes.add(estudiante);
+    }
+
+    public void agregarCandidato(Long id, String nombre, String nombrePartido) {
+        Candidato candidato = new Candidato(id, nombre, nombrePartido);
+        candidatos.add(candidato);
+    }
+
+    public void agregarMesa(Long id, String nombre, String presidente, String secretario) {
+        Mesa mesa = new Mesa(id, nombre, presidente, secretario);
+        mesas.add(mesa);
+    }
+
+    public void agregarCurso(Long id, String nombre, Mesa mesa) {
+        Curso curso = new Curso(id, nombre, mesa);
+        cursos.add(curso);
+    }
+    
 }
