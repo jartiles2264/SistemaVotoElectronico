@@ -35,9 +35,8 @@ public class Curso {
         this.mesa = mesa;
     }
 
-    // Sobrescribir el método toString para mostrar información relevante del curso
     @Override
     public String toString() {
-        return nombre; // Devuelve el nombre del curso para mostrar en los JTable u otros componentes
+        return nombre; 
     }
 }
