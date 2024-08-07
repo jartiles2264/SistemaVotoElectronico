@@ -37,15 +37,12 @@ public class BarraResultados extends JPanel {
             int barX = x;
             int barY = getHeight() - barHeight - 50;
 
-            // Draw the bar
             g2d.setColor(barColors[i]);
             g2d.fillRect(barX, barY, barWidth, barHeight);
 
-            // Draw the label at the bottom
             g2d.setColor(Color.BLACK);
             g2d.drawString(labels[i], barX + barWidth / 2 - metrics.stringWidth(labels[i]) / 2, getHeight() - 10);
 
-            // Draw the number of votes above the bar
             String votesText = String.valueOf(values[i]);
             int textWidth = metrics.stringWidth(votesText);
             g2d.drawString(votesText, barX + barWidth / 2 - textWidth / 2, barY - 5);
