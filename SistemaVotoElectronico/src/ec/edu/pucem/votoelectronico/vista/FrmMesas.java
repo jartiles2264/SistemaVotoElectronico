@@ -42,7 +42,7 @@ public class FrmMesas extends JFrame {
 
     private void cargarDatos() {
         DefaultTableModel model = (DefaultTableModel) ((JTable) ((JScrollPane) getContentPane().getComponent(0)).getViewport().getView()).getModel();
-        model.setRowCount(0); // Limpiar datos actuales
+        model.setRowCount(0);
         for (Mesa mesa : controller.getMesas()) {
             model.addRow(new Object[]{
                 mesa.getId(),
@@ -57,7 +57,7 @@ public class FrmMesas extends JFrame {
         JDialog dialog = new JDialog(this, "Agregar Mesa", true);
         
         JPanel panel = new JPanel();
-        panel.setLayout(null); // Usar el diseño por defecto sin layout manager
+        panel.setLayout(null);
 
         JLabel lblId = new JLabel("ID:");
         lblId.setBounds(20, 20, 100, 25);
