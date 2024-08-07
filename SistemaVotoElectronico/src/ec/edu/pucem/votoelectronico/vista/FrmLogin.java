@@ -9,10 +9,11 @@ import java.awt.event.ActionListener;
 
 public class FrmLogin extends JFrame {
     private static final long serialVersionUID = 1L;
+
     public FrmLogin(SufragioController controller) {
         setTitle("Inicio de Sesión");
         setSize(400, 200);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
 
         JPanel panel = new JPanel();
         JLabel cedulaLabel = new JLabel("Cédula:");
@@ -30,7 +31,7 @@ public class FrmLogin extends JFrame {
                 if (estudiante != null) {
                     FrmSufragio frmSufragio = new FrmSufragio(controller, controller.getCandidatos(), estudiante);
                     frmSufragio.setVisible(true);
-                    FrmLogin.this.dispose();
+                    FrmLogin.this.dispose(); 
                 } else {
                     JOptionPane.showMessageDialog(FrmLogin.this, "Cédula no válida o estudiante ya ha votado.");
                 }
